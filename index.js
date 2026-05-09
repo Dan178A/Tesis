@@ -2,13 +2,15 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const session = require('express-session');
 const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 
 const app = express();
+app.set('trust proxy', 1);
 const port = process.env.PORT || 3000;
 
 // CONFIGURACIÓN DE NUNJUCKS
-const env = nunjucks.configure('templates', {
+const env = nunjucks.configure(path.join(__dirname, 'templates'), {
     autoescape: true,
     express: app,
     noCache: true
@@ -47,11 +49,14 @@ env.addGlobal('get_flashed_messages', function(options) {
 
 // MIDDLEWARES
 app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(session({
-    secret: 'Tesis2024*SecretKey', // Cambia esto por algo más seguro
+    secret: process.env.SESSION_SECRET || 'Tesis2024*SecretKey',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 app.use(flash());
 
@@ -106,8 +111,16 @@ app.get('/logout', (req, res) => {
     res.redirect('/login');
 });
 
-app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`);
+// Manejador de errores
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Algo salió mal en el servidor.');
 });
 
-module.exports = app; // Necesario para Vercel
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Servidor corriendo en http://localhost:${port}`);
+    });
+}
+
+module.exports = app;
