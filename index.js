@@ -10,7 +10,7 @@ app.set('trust proxy', 1);
 const port = process.env.PORT || 3000;
 
 // CONFIGURACIÓN DE NUNJUCKS
-const env = nunjucks.configure(path.join(__dirname, '..', 'templates'), {
+const env = nunjucks.configure(path.join(__dirname, 'templates'), {
     autoescape: true,
     express: app,
     noCache: true
@@ -48,6 +48,7 @@ env.addGlobal('get_flashed_messages', function(options) {
 });
 
 // MIDDLEWARES
+app.use('/static', express.static(path.join(__dirname, 'public', 'static')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
