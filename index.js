@@ -48,7 +48,7 @@ env.addGlobal('get_flashed_messages', function(options) {
 });
 
 // MIDDLEWARES
-app.use('/static', express.static(path.join(__dirname, 'public', 'static')));
+app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
