@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /* Unifica estilo de formulario y modal */
+    #seccionRegistro .card, .modal-content {
+        max-width: 500px;
+        margin: 0 auto;
+        min-height: 420px;
+        padding: 3rem 2rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.15);
+    }
+    .modal-dialog.modal-lg {
+        max-width: 500px;
+        margin: 1.75rem auto;
+    }
+    .modal-header, .modal-body {
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .modal-header {
+        padding-top: 0;
+        padding-bottom: 1rem;
+    }
+    .modal-body {
+        padding-bottom: 0;
+    }
+    @media (max-width: 600px) {
+        #seccionRegistro .card, .modal-content {
+            max-width: 95vw;
+            min-height: 340px;
+            padding: 1.5rem 0.5rem;
+        }
+        .modal-dialog.modal-lg {
+            max-width: 98vw;
+        }
+    }
+</style>
+<div class="bg-black min-vh-100 py-5 text-white">
+    <div class="container">
+        
+        <div id="seccionRegistro" class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card bg-dark border-danger border-2 rounded-4 p-4 shadow-lg text-center">
+                    <h2 class="fw-black text-uppercase mb-4">¿Cómo te <span class="text-danger">Sientes</span> hoy?</h2>
+                    <form class="row g-3 needs-validation" id="formPerfil" novalidate>
+                        <div class="col-md-12">
+                            <select class="form-select form-select-lg bg-black border-secondary text-white" id="valSintoma" required>
+                                <option selected disabled value="">Selecciona tu zona de dolor...</option>
+                                <option value="cuello">Dolor de Cuello / Cervical</option>
+                                <option value="manos">Tensión en Muñecas / Manos</option>
+                                <option value="espalda">Dolor de Espalda / Lumbar</option>
+                            </select>
+                            <div class="invalid-feedback">Debes elegir una zona para recomendarte la rutina.</div>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button class="btn btn-danger btn-lg rounded-pill fw-black px-5" type="submit">GENERAR RUTINA</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="seccionRutina" class="row justify-content-center mt-5" style="display:none;">
+            <div class="col-lg-6 col-md-8 col-12 d-flex justify-content-center">
+                <div class="card bg-dark border-danger border-2 rounded-4 shadow-lg text-center align-items-center w-100" style="max-width:500px; min-height:420px; padding:3rem 2rem; border-radius:1.5rem; box-shadow:0 0.5rem 1.5rem rgba(0,0,0,0.15);">
+                    <h4 class="text center fw-bold mb-3 ">Rutina recomendada: <span id="zonaSeleccionada" class="text-danger text-center"></span></h4>
+                    <p id="descripcionRutina" class="small text-secondary mb-3">Sigue la rutina en el orden sugerido. Presiona <b>INICIAR RUTINA</b> para comenzar.</p>
+                    <ul id="listaEjercicios" class="list-group list-group-flush bg-dark text-white mb-4"></ul>
+                    <button id="btnIniciarRutina" class="btn btn-danger btn-lg rounded-pill fw-black px-5 mt-2">INICIAR RUTINA</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalEjercicio" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-dark border-danger border-2 text-white">
+                    <div class="modal-header border-secondary">
+                        <h5 class="modal-title fw-black text-uppercase" id="tituloEjercicio">Nombre del Ejercicio</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="ratio ratio-16x9 mb-4 bg-black rounded overflow-hidden">
+                            <img id="gifEjercicio" src="" class="object-fit-contain" alt="Instrucción">
+                        </div>
+                        
+                        <div class="display-1 fw-black mb-3" id="timer">00:10</div>
+                        <p id="instruccionEjercicio" class="text-secondary mb-4 small"></p>
+
+                        <div class="d-grid gap-2">
+                            <button id="btnAccion" class="btn btn-danger btn-lg fw-bold rounded-pill" type="button">COMENZAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% block scripts %}
+<script>
+// --- BASE DE DATOS DE RUTINAS ---
+const rutinas = {
+    cuello: [
+        { nombre: "Péndulo Lateral", gif: "pendulo_lateral.jpg", desc: "Deja caer la oreja hacia el hombro lateralmente para elongar el cuello suavemente." },
+        { nombre: "Mirada al Horizonte", gif: "mirada_horizonte.gif", desc: "Gira la cabeza lentamente hacia los lados como si miraras por encima del hombro." },
+        { nombre: "El Sí Profundo", gif: "si_profundo.gif", desc: "Lleva el mentón al pecho para estirar la nuca y regresa a la posición natural." }
+    ],
+    manos: [
+        { nombre: "Saludo Inverso", gif: "saludo_inverso.gif", desc: "Junta las palmas frente al pecho y baja las manos lentamente hasta sentir el estiramiento." },
+        { nombre: "Estiramiento Teclador", gif: "estiramiento_teclador.jpg", desc: "Estira el brazo con la palma al frente y presiona los dedos hacia atrás con la otra mano." },
+        { nombre: "Rotación Órbita", gif: "rotacion_orbita.jpg", desc: "Realiza giros circulares lentos con los puños cerrados para liberar tensión articular." }
+    ],
+    espalda: [
+        { nombre: "Apertura de Pecho", gif: "apertura_pecho.jpg", desc: "Entrelaza las manos detrás de la espalda y estira hacia atrás para corregir postura." },
+        { nombre: "Abrazo de Oso", gif: "abrazo_oso.gif", desc: "Cruza los brazos intentando tocar tus omóplatos para estirar la espalda alta." },
+        { nombre: "Escuadra Lumbar", gif: "escuadra_lumbar.gif", desc: "Cruza una pierna sobre otra (formando un '4') y rota el tronco suavemente." }
+    ]
+};
+
+let rutinaActual = [];
+let indiceEjercicio = 0;
+let tiempo = 10; // 10 segundos para la prueba rápida
+let intervalo;
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modalObj = new bootstrap.Modal(document.getElementById('modalEjercicio'));
+    const seccionRutina = document.getElementById('seccionRutina');
+    const zonaSeleccionada = document.getElementById('zonaSeleccionada');
+    const listaEjercicios = document.getElementById('listaEjercicios');
+    const btnIniciarRutina = document.getElementById('btnIniciarRutina');
+
+    // Ocultar la tarjeta al inicio
+    seccionRutina.style.display = 'none';
+
+    document.getElementById('formPerfil').addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (this.checkValidity()) {
+            const zona = document.getElementById('valSintoma').value;
+            rutinaActual = rutinas[zona];
+            indiceEjercicio = 0;
+
+            seccionRutina.style.display = 'block';
+            zonaSeleccionada.innerText = zona.toUpperCase();
+            listaEjercicios.innerHTML = '';
+            rutinaActual.forEach((ej, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item bg-dark border-secondary';
+                li.innerHTML = `<strong>${index + 1}.</strong> ${ej.nombre} - <span class="text-secondary">${ej.desc}</span>`;
+                listaEjercicios.appendChild(li);
+            });
+            seccionRutina.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        this.classList.add('was-validated');
+    });
+
+    btnIniciarRutina.addEventListener('click', function() {
+        seccionRutina.style.display = 'none';
+        cargarEjercicio();
+        modalObj.show();
+    });
+
+    function cargarEjercicio() {
+        const ej = rutinaActual[indiceEjercicio];
+        document.getElementById('tituloEjercicio').innerText = ej.nombre;
+        document.getElementById('gifEjercicio').src = `/static/img/${ej.gif}`;
+        document.getElementById('gifEjercicio').alt = ej.nombre;
+        document.getElementById('instruccionEjercicio').innerText = ej.desc;
+        document.getElementById('timer').innerText = "00:10";
+        document.getElementById('timer').classList.remove('text-success');
+        document.getElementById('btnAccion').innerText = "COMENZAR";
+        document.getElementById('btnAccion').className = "btn btn-danger btn-lg fw-bold rounded-pill";
+        tiempo = 10;
+    }
+
+    function controlarEjercicio() {
+        const btn = document.getElementById('btnAccion');
+        if (btn.innerText === "COMENZAR") {
+            btn.disabled = true;
+            btn.innerText = "EJERCITANDO...";
+            intervalo = setInterval(() => {
+                tiempo--;
+                document.getElementById('timer').innerText = `00:${tiempo < 10 ? '0' + tiempo : tiempo}`;
+                if (tiempo <= 0) {
+                    clearInterval(intervalo);
+                    btn.disabled = false;
+                    document.getElementById('timer').classList.add('text-success');
+                    if (indiceEjercicio < rutinaActual.length - 1) {
+                        btn.innerText = "SIGUIENTE EJERCICIO";
+                        btn.className = "btn btn-success btn-lg fw-bold rounded-pill";
+                    } else {
+                        btn.innerText = "FINALIZAR RUTINA";
+                        btn.className = "btn btn-primary btn-lg fw-bold rounded-pill";
+                    }
+                }
+            }, 1000);
+        } else if (btn.innerText === "SIGUIENTE EJERCICIO") {
+            indiceEjercicio++;
+            cargarEjercicio();
+        } else {
+            modalObj.hide();
+            alert("¡Felicidades! Rutina completada con éxito.");
+            location.reload();
+        }
+    }
+
+    document.getElementById('btnAccion').addEventListener('click', controlarEjercicio);
+});
+</script>
+{% endblock %}
+{% endblock %}

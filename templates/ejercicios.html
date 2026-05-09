@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block title %}Ejercicios - Bienestar Pro{% endblock %}
+
+{% block content %}
+
+<!-- Modal para ejercicio individual -->
+<div class="modal fade" id="modalEjercicio" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark border-danger border-2 text-white">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title fw-black text-uppercase" id="tituloEjercicio">Nombre del Ejercicio</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="ratio ratio-16x9 mb-4 bg-black rounded overflow-hidden">
+                    <img id="gifEjercicio" src="" class="object-fit-contain" alt="Instrucción">
+                </div>
+                <div class="display-1 fw-black mb-3" id="timer">00:10</div>
+                <p id="instruccionEjercicio" class="text-secondary mb-4 small"></p>
+                <div class="d-grid gap-2">
+                    <button id="btnAccion" class="btn btn-danger btn-lg fw-bold rounded-pill" type="button">COMENZAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-black min-vh-100">
+    <div class="container py-5">
+        
+        <div class="row mb-5">
+            <div class="col-12 text-center text-white">
+                <h1 class="fw-black display-4 text-uppercase">
+                    biblioteca <span class="text-danger">Ejercicios</span>
+                </h1>
+                <p class="lead text-secondary mx-auto" style="max-width: 800px;">
+                    Movimientos diseñados para superar la rigidez de la silla y recuperar tu energía durante la jornada laboral.
+                </p>
+                <hr class="border-danger border-2 w-25 mx-auto opacity-100">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+            <a href="#manos" class="btn btn-outline-danger rounded-pill px-4 fw-bold">Muñecas</a>
+            <a href="#cuello" class="btn btn-outline-danger rounded-pill px-4 fw-bold">Cuello</a>
+            <a href="#espalda" class="btn btn-outline-danger rounded-pill px-4 fw-bold">Espalda/Hombros</a>
+        </div>
+
+        <div class="row g-4 mb-5 shadow-lg pt-4" id="manos">
+            <div class="col-12">
+                <h3 class="h4 fw-bold border-start border-danger border-4 ps-3 mb-4 text-uppercase text-white">1. Muñecas y Antebrazos</h3>
+                 <p class="p-1 text-secondary mx-auto" style="max-width: 800px;">
+                    ​Ideal para prevenir molestias por el uso constante del teclado y el mouse.
+                </p>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 bg-dark rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9 bg-black">
+                        <img src="{{ url_for('static', filename='img/saludo_inverso.gif') }}" class="object-fit-contain" alt="Saludo Inverso">
+                    </div>
+                    <div class="card-body p-4 text-white">
+                        <h5 class="fw-bold text-danger">El Saludo Inverso</h5>
+                        <p class="small text-secondary">Junta las palmas frente al pecho y baja las manos lentamente hasta sentir el estiramiento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 bg-dark rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9 bg-black">
+                        <img src="{{ url_for('static', filename='img/estiramiento_teclador.jpg') }}" class="object-fit-contain" alt="Estiramiento del Teclador">
+                    </div>
+                    <div class="card-body p-4 text-white">
+                        <h5 class="fw-bold text-danger">Estiramiento del Teclador</h5>
+                        <p class="small text-secondary">Estira el brazo con la palma al frente y presiona los dedos hacia atrás con la otra mano.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 bg-dark rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9 bg-black">
+                        <img src="{{ url_for('static', filename='img/rotacion_orbita.jpg') }}" class="object-fit-contain" alt="Rotación de Órbita">
+                    </div>
+                    <div class="card-body p-4 text-white">
+                        <h5 class="fw-bold text-danger">Rotación de Órbita</h5>
+                        <p class="small text-secondary">Realiza giros circulares lentos con los puños cerrados para liberar tensión articular.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5 pt-4" id="cuello">
+            <div class="col-12 text-end">
+                <h3 class="h4 fw-bold border-end border-danger border-4 pe-3 mb-4 text-uppercase text-danger text-white">2. Cuello y Cervicales</h3>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 bg-dark rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9 bg-black">
+                        <img src="{{ url_for('static', filename='img/pendulo_lateral.jpg') }}" class="object-fit-contain" alt="Péndulo Lateral">
+                    </div>
+                    <div class="card-body p-4 text-center text-white">
+                        <h5 class="fw-bold">Péndulo Lateral</h5>
+                        <p class="small text-secondary">Deja caer la oreja hacia el hombro lateralmente para elongar el cuello suavemente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 bg-dark rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9 bg-black">
+                        <img src="{{ url_for('static', filename='img/mirada_horizonte.gif') }}" class="object-fit-contain" alt="Mirada al Horizonte">
+                    </div>
+                    <div class="card-body p-4 text-center text-white">
+                        <h5 class="fw-bold">Mirada al Horizonte</h5>
+                        <p class="small text-secondary">Gira la cabeza lentamente hacia los lados como si miraras por encima del hombro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 bg-dark rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9 bg-black">
+                        <img src="{{ url_for('static', filename='img/si_profundo.gif') }}" class="object-fit-contain" alt="El Sí Profundo">
+                    </div>
+                    <div class="card-body p-4 text-center text-white">
+                        <h5 class="fw-bold">El "Sí" Profundo</h5>
+                        <p class="small text-secondary">Lleva el mentón al pecho para estirar la nuca y regresa a la posición natural.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 pt-4" id="espalda">
+            <div class="col-12">
+                <h3 class="h4 fw-bold border-start border-danger border-4 ps-3 mb-4 text-uppercase text-white">3. Espalda y Hombros</h3>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-2 border-danger bg-transparent rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9">
+                        <img src="{{ url_for('static', filename='img/apertura_pecho.jpg') }}" class="object-fit-contain" alt="Apertura de Pecho">
+                    </div>
+                    <div class="card-body p-4 text-white">
+                        <h5 class="fw-bold text-danger text-center">Apertura de Pecho</h5>
+                        <p class="small text-secondary mb-0">Entrelaza las manos detrás de la espalda y estira hacia atrás para corregir postura.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-2 border-danger bg-transparent rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9">
+                        <img src="{{ url_for('static', filename='img/abrazo_oso.gif') }}" class="object-fit-contain" alt="Abrazo de Oso">
+                    </div>
+                    <div class="card-body p-4 text-white">
+                        <h5 class="fw-bold text-danger text-center">Abrazo de Oso</h5>
+                        <p class="small text-secondary mb-0">Cruza los brazos intentando tocar tus omóplatos para estirar la espalda alta.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-2 border-danger bg-transparent rounded-4 overflow-hidden shadow">
+                    <div class="ratio ratio-16x9">
+                        <img src="{{ url_for('static', filename='img/escuadra_lumbar.gif') }}" class="object-fit-contain" alt="Escuadra Lumbar">
+                    </div>
+                    <div class="card-body p-4 text-white">
+                        <h5 class="fw-bold text-danger text-center">Escuadra Lumbar</h5>
+                        <p class="small text-secondary mb-0">Cruza una pierna sobre otra (formando un "4") y rota el tronco suavemente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> </div>
+    <script src="{{ url_for('static', filename='js/ejercicios.js') }}"></script>
+{% endblock %}

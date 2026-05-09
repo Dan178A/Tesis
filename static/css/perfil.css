@@ -1,0 +1,25 @@
+
+#seccionRegistro .card {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 420px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+/* Modal más compacto */
+.modal-dialog.modal-lg {
+  max-width: 420px;
+}
+.modal-content {
+  border-radius: 1.5rem;
+}
+@media (max-width: 600px) {
+  #seccionRegistro .card {
+    max-width: 95vw;
+    min-height: 340px;
+    padding: 1.5rem 0;
+  }
+  .modal-dialog.modal-lg {
+    max-width: 98vw;
+  }
+}

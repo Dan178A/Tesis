@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Bienestar Pro{% endblock %}
+
+{% block content %}
+<div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{{ url_for('static', filename='img/1.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bienestar Pro" width="700" height="500" loading="lazy">
+            </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+              Tu oficina no tiene por qué ser un <span style="color: #ff3b30;">riesgo para tu salud</span> 
+            </h1>
+            <p class="lead">
+            No dejes que tu escritorio agote tu energía.
+            Pasar 8+ horas sentado frente al monitor drena tu vitalidad y afecta tu postura. En Bienestar Pro, te ayudamos a recuperar el control de tu salud física y mental sin salir de tu espacio de trabajo.
+            Haz clic en el botón, descubre nuestra guía de pausas activas y transforma tu jornada.
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button class="btn btn-outline-secondary" type="button" onclick="window.location.href='/perfil'">Inicia ya</button>
+            </div>
+          </div>
+        </div>
+      </div>     
+<section class="py-5" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); color: white; border-radius: 0px 0px 0 0;">
+    <div class="container py-5">
+        
+        <div class="text-center mb-5">
+            <div class="d-inline-block px-3 py-1 mb-3" style="background-color: #ff3b30; transform: rotate(-2deg); font-weight: 900; font-size: 0.9rem;">
+                LA CRISIS
+            </div>
+            <h2 class="display-4 fw-bold mb-4">Cómo nos convertimos en <br> <span style="color: #ff3b30;">presos del escritorio</span></h2>
+            <p class="lead text-secondary mx-auto" style="max-width: 800px;">
+                El sedentarismo absoluto en entornos administrativos ha marginado el movimiento natural, sustituyéndolo por posturas estáticas que deterioran la salud musculoesquelética y afectan directamente el rendimiento e integridad del personal.
+            </p>
+        </div>
+
+        <div class="row g-4 text-center">
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 rounded-4" style="background: rgba(3, 3, 3, 0.1); border: 1px solid rgba(255, 59, 48, 0.2);">
+                    <div class="mb-3 h1" style="color: #ff3b30;"><i class="bi bi-building"></i></div>
+                    <h3 class="h5 fw-bold">Trabajo</h3>
+                    <div class="display-6 fw-black" style="color: #ff3b30;">8+ horas</div>
+                    <p class="small text-secondary mt-2">Encadenados a escritorios y reuniones interminables.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 rounded-4" style="background: rgba(7, 7, 7, 0.1); border: 1px solid rgba(175, 82, 222, 0.2);">
+                    <div class="mb-3 h1" style="color: #af52de;"><i class="bi bi-cup-hot"></i></div>
+                    <h3 class="h5 fw-bold">Comidas</h3>
+                    <div class="display-6 fw-black" style="color: #af52de;">2+ horas</div>
+                    <p class="small text-secondary mt-2">Desayuno, almuerzo y cena... siempre sentados.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 rounded-4" style="background: rgba(5, 5, 5, 0.1); border: 1px solid rgba(255, 149, 0, 0.2);">
+                    <div class="mb-3 h1" style="color: #ff9500;"><i class="bi bi-car-front"></i></div>
+                    <h3 class="h5 fw-bold">Trayectos</h3>
+                    <div class="display-6 fw-black" style="color: #ff9500;">2+ horas</div>
+                    <p class="small text-secondary mt-2">Sentados en el tráfico o en el transporte público.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="p-4 rounded-4" style="background: rgba(9, 9, 9, 0.1); border: 1px solid rgba(255, 45, 85, 0.2);">
+                    <div class="mb-3 h1" style="color: #ff2d55;"><i class="bi bi-tv"></i></div>
+                    <h3 class="h5 fw-bold">Entretenimiento</h3>
+                    <div class="display-6 fw-black" style="color: #ff2d55;">4+ horas</div>
+                    <p class="small text-secondary mt-2">Streaming, redes sociales y juegos al llegar a casa.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-5 p-4 text-center rounded-4" style="background: rgba(0, 0, 0, 0.15); border: 2px dashed #ff3b30;">
+            <h3 class="fw-bold m-0">Pasamos la vida sentados, <span style="color: #ff3b30;">no viviendo.</span></h3>
+        </div>
+    </div>
+</section>      
+    <div class="container py-5">
+    <div class="row align-items-center g-5 py-4">
+        
+        <div class="col-lg-6">
+            <div class="pe-lg-5">
+                <h2 class="display-5 fw-bold text-dark mb-4" style="letter-spacing: -1px; line-height: 1.2;">
+                    Gestión del Bienestar con <br>
+                    <span style="color: #ff3b30;">Monitor Preventivo</span>
+                </h2>
+                
+                <p class="text-secondary mb-4" style="font-size: 1.15rem; line-height: 1.7; text-align: justify;">
+                    El sistema protege la integridad física del personal mediante la 
+                    <strong>detección de inactividad</strong>, alertas de postura y 
+                    secuencias de movimiento guiadas. Esta intervención permite 
+                    desempeñar las labores administrativas reduciendo el impacto 
+                    negativo de la jornada sedentaria.
+                </p>
+
+                <div class="d-none d-lg-block pt-2">
+                    <a href="/ejercicios" class="btn btn-lg px-4 py-2 rounded-pill shadow-sm" 
+                       style="background-color: #ff3b30; color: white; font-weight: 600; border: none; font-size: 1rem; transition: 0.3s;">
+                        Explorar Funciones
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 text-center">
+            <div class="position-relative d-inline-block">
+                <img src="{{ url_for('static', filename='img/2.png') }}" 
+                     alt="Interfaz de usuario" 
+                     class="img-fluid rounded-4 shadow" 
+                     style="max-width: 85%; border: 4px solid #ffffff;">
+                
+                <div class="position-absolute top-0 start-0 translate-middle bg-white p-2 shadow-sm rounded-circle d-none d-md-block" style="border: 1px solid #eee;">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-center d-lg-none mt-4">
+            <a href="/ejercicios" class="btn px-5 py-3 rounded-pill" 
+               style="background-color: #ff3b30; color: white; font-weight: 600; font-size: 1rem;">
+                Ver Funciones
+            </a>
+        </div>
+
+    </div>
+</div>
+</section> 
+<section class="py-5" style="background-color: #000000; color: #ffffff;">
+    <div class="container py-5">
+        
+        <div class="text-center mb-5">
+            <div class="d-inline-block px-3 py-1 mb-3" style="background-color: #ff3b30; transform: rotate(-2deg); font-weight: 900; font-size: 0.9rem; color: white;">
+                PREVENCIÓN ACTIVA
+            </div>
+            <h2 class="display-5 fw-black mb-3">
+                Variedad de <span style="color: #ff3b30;">movimientos preventivos</span>
+            </h2>
+            <p class="text-secondary mx-auto" style="max-width: 750px; font-size: 1.1rem; color: #a0a0a0 !important;">
+                La plataforma ofrece una biblioteca de ejercicios diseñados para el entorno administrativo, permitiendo la descompresión muscular en la jornada laboral.
+            </p>
+        </div>
+
+        <div class="row justify-content-center align-items-center d-none d-lg-flex" style="min-height: 500px;">
+            
+            <div class="col-lg-3 text-center" style="transform: rotate(-8deg); z-index: 1;">
+                <div class="card border-0 shadow-lg p-3 rounded-4" style="background: #1a1a1a; border: 1px solid #333 !important;">
+                    <h5 class="fw-bold mt-2 text-white">Descompresión Cervical.</h5>
+                    <p class="small text-secondary mb-3">cuello</p>
+                    <video src="{{ url_for('static', filename='img/ejercicio3.mp4') }}" class="img-fluid rounded-3" style="filter: grayscale(20%); shadow: 0 10px 20px rgba(255,59,48,0.2);" autoplay muted loop></video>
+                </div>
+            </div>
+
+            <div class="col-lg-4 text-center" style="z-index: 3;">
+                <div class="card border-0 p-4 rounded-4" style="background: #1a1a1a; border: 2px solid #ff3b30 !important; box-shadow: 0 0 30px rgba(255, 59, 48, 0.2);">
+                    <h4 class="fw-black text-white">Dinámicas Activas</h4>
+                    <p class="text-secondary mb-3">Activación corporal total</p>
+                    <video src="{{ url_for('static', filename='img/ejercicio1.mp4') }}" class="img-fluid rounded-3" style="filter: grayscale(20%); shadow: 0 10px 20px rgba(255,59,48,0.2);" autoplay muted loop></video>
+                </div>
+            </div>
+
+            <div class="col-lg-3 text-center" style="transform: rotate(8deg); z-index: 1;">
+                <div class="card border-0 shadow-lg p-3 rounded-4" style="background: #1a1a1a; border: 1px solid #333 !important;">
+                    <h5 class="fw-bold mt-2 text-white">Zona Lumbar</h5>
+                    <p class="small text-secondary mb-3">Alivio de espalda</p>
+                   <video src="{{ url_for('static', filename='img/222.mp4') }}" class="img-fluid rounded-3" style="filter: grayscale(20%); shadow: 0 10px 20px rgba(255,59,48,0.2);" autoplay muted loop></video>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="/ejercicios" class="btn btn-lg px-5 py-3 rounded-pill" 
+               style="background-color: #ff3b30; color: white; font-weight: 800; font-size: 1.1rem; border: none; box-shadow: 0 10px 20px rgba(255, 59, 48, 0.3);">
+                VER CATÁLOGO COMPLETO <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

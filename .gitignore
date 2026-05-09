@@ -1,0 +1,11 @@
+/node_modules
+/venv
+.env
+/antigravity.md
+/README.md
+/.antigravity
+/.chatgpt
+/.claude
+/.gemini
+/claude.md
+/gemini.md

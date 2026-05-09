@@ -1,0 +1,45 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Si quieres que los títulos tengan un peso diferente */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+:root {
+    --bs-body-font-family: 'Poppins', sans-serif;
+}
+/* 1. Importación de Google Fonts (Asegúrate de incluir pesos altos) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+/* 2. Definición de la clase para números e impacto */
+.fw-black {
+    font-weight: 900 !important;
+    letter-spacing: -1px; /* Esto junta un poco las letras para que se vea más moderno */
+}
+
+/* 3. Ajuste opcional para los títulos de la "Crisis" */
+.display-1, .display-4 {
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+/* Aplicar a todo el cuerpo del proyecto */
+body {
+    font-family: 'Poppins', sans-serif; /* Cambia 'Poppins' por el nombre de tu fuente */
+    -webkit-font-smoothing: antialiased; /* Hace que la letra se vea más nítida */
+}
+
+/* Forzar el grosor para los títulos display de Bootstrap */
+.display-1, .display-2, .display-3, .display-4, .display-5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; /* Aquí es donde logras el efecto "gordo" */
+    letter-spacing: -1.5px; /* Efecto moderno de letras juntas */
+}
+
+/* Estilo para los párrafos de tu tesis */
+p {
+    font-weight: 400;
+    color: #4a4a4a;
+}
