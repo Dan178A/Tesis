@@ -1,212 +1,127 @@
-# Bienestar Pro
+<div align="center">
 
-Una plataforma web moderna dedicada al bienestar integral y la salud holística de sus usuarios.
+# 🌿 Bienestar Pro
 
-![Bienestar Pro Screenshot](screencapture-bienestarpro-vercel-app-2026-06-10-15_22_51.png)
+**Plataforma web de bienestar integral — ejercicio, salud y seguimiento personal**
+
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://bienestarpro.vercel.app)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
+[![HTML](https://img.shields.io/badge/HTML-72%25-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![JavaScript](https://img.shields.io/badge/JavaScript-24%25-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+[🌐 Ver Demo en Vivo](https://bienestarpro.vercel.app) • [📂 Repositorio](https://github.com/Dan178A/Tesis)
+
+</div>
+
+---
+
+## 📸 Vista Previa
+
+![Bienestar Pro - Vista Previa](screencapture-bienestarpro-vercel-app-2026-06-10-15_22_51.png)
+
+---
 
 ## 📋 Descripción
 
-**Bienestar Pro** es una aplicación web desarrollada como proyecto de tesis que proporciona herramientas y recursos para el seguimiento, monitoreo y mejora del bienestar personal. La plataforma ofrece una interfaz intuitiva y accesible para que los usuarios gestionen su salud integral de manera efectiva.
+**Bienestar Pro** es una plataforma web desarrollada como proyecto de tesis, orientada al bienestar integral del usuario. Permite el acceso a rutinas de ejercicio, gestión de perfil personal y seguimiento de actividad física, todo desde una interfaz moderna y responsiva.
 
-### Características Principales
+---
 
-- 🔐 **Autenticación Segura**: Sistema de login con credenciales seguras
-- 👤 **Perfiles de Usuario**: Gestión personalizada de datos del usuario
-- 🏋️ **Ejercicios y Rutinas**: Catálogo completo de ejercicios de bienestar
-- 📱 **Interfaz Responsiva**: Diseño adaptable a dispositivos móviles y escritorio
-- ☁️ **Desplegado en la Nube**: Hosting en Vercel para máxima disponibilidad
+## ✨ Características Principales
 
-## 🚀 Stack Tecnológico
+- 🏠 **Página de inicio** — Presentación de la plataforma y sus beneficios
+- 💪 **Módulo de Ejercicios** — Biblioteca de rutinas y actividades físicas
+- 👤 **Perfil de Usuario** — Vista personalizada del usuario autenticado
+- 🔐 **Autenticación** — Sistema de login seguro con sesiones
+- ⚡ **Deploy en Vercel** — Disponible en línea con CI/CD automático
 
-| Tecnología | Versión | Propósito |
-|-----------|---------|----------|
-| **Node.js** | 18+ | Runtime de JavaScript |
-| **Express.js** | 4.18.2 | Framework web minimalista |
-| **Nunjucks** | 3.2.4 | Motor de plantillas HTML |
-| **HTML5** | - | Estructura y semántica |
-| **CSS3** | - | Estilos y diseño responsivo |
-| **JavaScript (ES6+)** | - | Interactividad del lado del cliente |
+---
 
-### Dependencias Clave
+## 🛠️ Tecnologías Utilizadas
 
-- **express-session** (1.17.3): Gestión de sesiones de usuario
-- **connect-flash** (0.1.1): Mensajes flash para retroalimentación al usuario
-- **cookie-parser** (1.4.6): Procesamiento de cookies
+| Categoría       | Tecnología                  |
+|-----------------|-----------------------------|
+| **Runtime**     | Node.js                     |
+| **Framework**   | Express.js v4               |
+| **Plantillas**  | Nunjucks v3                 |
+| **Sesiones**    | express-session             |
+| **Mensajes**    | connect-flash               |
+| **Frontend**    | HTML5, CSS3, JavaScript     |
+| **Deploy**      | Vercel                      |
 
-## 📊 Composición del Proyecto
-
-```
-HTML        72.2%  ████████████████████████████
-JavaScript  24.1%  ████████
-CSS         3.7%   █
-```
-
-## 🔧 Instalación y Configuración
-
-### Requisitos Previos
-
-- Node.js 18 o superior
-- npm 9 o superior
-- Git
-
-### Pasos de Instalación
-
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/Dan178A/Tesis.git
-   cd Tesis
-   ```
-
-2. **Instalar dependencias**
-   ```bash
-   npm install
-   ```
-
-3. **Configurar variables de entorno**
-   
-   Crea un archivo `.env` en la raíz del proyecto (opcional para desarrollo):
-   ```env
-   PORT=3000
-   NODE_ENV=development
-   SESSION_SECRET=tu_clave_secreta_aqui
-   ```
-
-4. **Ejecutar en modo desarrollo**
-   ```bash
-   npm run dev
-   ```
-   
-   O en modo producción:
-   ```bash
-   npm start
-   ```
-
-5. **Acceder a la aplicación**
-   
-   Abre tu navegador en `http://localhost:3000`
-
-## 🔑 Credenciales de Acceso (Desarrollo)
-
-Para acceder al panel de administrador:
-
-- **Email**: `admin@bienestarpro.com`
-- **Contraseña**: `Tesis2024*`
-
-> ⚠️ **Nota de Seguridad**: Estas credenciales son solo para desarrollo. En producción, implementar un sistema de autenticación robusto con base de datos y hashing de contraseñas.
+---
 
 ## 📁 Estructura del Proyecto
 
 ```
 Tesis/
-├── index.js                                    # Archivo principal de la aplicación
-├── package.json                                # Dependencias y scripts
-├── package-lock.json                           # Lock de versiones
-├── vercel.json                                 # Configuración de despliegue
-├── .gitignore                                  # Archivos ignorados en Git
-├── .vercelignore                               # Archivos ignorados en Vercel
-├── static/                                     # Archivos estáticos (CSS, JS, imágenes)
-│   ├── css/                                    # Estilos CSS
-│   ├── js/                                     # Scripts JavaScript
-│   └── images/                                 # Imágenes y assets
-└── templates/                                  # Plantillas Nunjucks (HTML)
-    ├── index.html                              # Página principal
-    ├── login.html                              # Formulario de login
-    ├── perfil.html                             # Perfil del usuario
-    └── ejercicios.html                         # Catálogo de ejercicios
+├── templates/
+│   ├── base.html          # Plantilla base (layout principal)
+│   ├── index.html         # Página de inicio
+│   ├── ejercicios.html    # Módulo de ejercicios
+│   ├── login.html         # Página de inicio de sesión
+│   └── perfil.html        # Perfil del usuario
+├── static/                # Archivos estáticos (CSS, JS, imágenes)
+├── index.js               # Servidor principal (Express)
+├── package.json           # Dependencias del proyecto
+├── vercel.json            # Configuración de despliegue
+└── README.md
 ```
-
-## 🌐 Rutas Disponibles
-
-| Ruta | Método | Descripción |
-|------|--------|-------------|
-| `/` | GET | Página principal |
-| `/ejercicios` | GET | Catálogo de ejercicios |
-| `/login` | GET | Formulario de login |
-| `/login` | POST | Procesar credenciales |
-| `/perfil` | GET | Panel de usuario (requiere autenticación) |
-| `/logout` | GET | Cerrar sesión |
-
-## ☁️ Despliegue
-
-La aplicación está configurada para desplegarse en **Vercel** con el archivo `vercel.json`.
-
-### URLs de Acceso
-
-- **Producción**: [https://bienestarpro.vercel.app](https://bienestarpro.vercel.app)
-
-### Pasos de Despliegue
-
-1. Conectar repositorio a Vercel
-2. Configurar variables de entorno en Vercel
-3. Vercel detectará automáticamente la configuración en `vercel.json`
-4. Desplegar automáticamente en cada push a `master`
-
-## 🔒 Seguridad
-
-- ✅ Session management con `express-session`
-- ✅ CSRF protection mediante cookies seguras
-- ✅ Content Security Policy configurado
-- ✅ Control de caché para archivos estáticos
-- ⚠️ Para producción: Implementar autenticación robusta, HTTPS obligatorio, y validación en backend
-
-## 📝 Desarrollo
-
-### Modo Desarrollo con Nodemon
-
-```bash
-npm run dev
-```
-
-Esto ejecutará la aplicación con reinicio automático al detectar cambios.
-
-### Estructura del Código
-
-- **Backend**: Express.js con manejo de sesiones
-- **Frontend**: HTML + CSS + JavaScript vanilla
-- **Templating**: Nunjucks para renderizado dinámico
-- **Estático**: Servido desde carpeta `/static`
-
-## 🤝 Contribuciones
-
-Este proyecto es una tesis académica. Las contribuciones son bienvenidas para mejoras, reportes de bugs o sugerencias:
-
-1. Fork el repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo licencia abierta. Consulta el archivo LICENSE para más detalles.
-
-## 👨‍💻 Autor
-
-**Dan178A** - Proyecto de Tesis para Bienestar Integral
-
-- GitHub: [@Dan178A](https://github.com/Dan178A)
-- Repositorio: [Tesis](https://github.com/Dan178A/Tesis)
-
-## 📞 Soporte
-
-Para preguntas o issues:
-
-- Abre un issue en el [repositorio de GitHub](https://github.com/Dan178A/Tesis/issues)
-- Consulta la documentación oficial de las dependencias utilizadas
-
-## 🗺️ Roadmap
-
-- [ ] Integración de base de datos (MongoDB/PostgreSQL)
-- [ ] Autenticación con OAuth
-- [ ] Dashboard analytics
-- [ ] Sistema de notificaciones
-- [ ] API REST completa
-- [ ] Aplicación móvil nativa
-- [ ] Integraciones con wearables
-- [ ] Sistema de comunidad/redes sociales
 
 ---
 
-**Última actualización**: Junio 2026  
-**Estado**: En desarrollo activo  
-**Versión**: 1.0.0
+## 🚀 Instalación y Uso Local
+
+### Prerrequisitos
+
+- [Node.js](https://nodejs.org) v16 o superior
+- npm v8 o superior
+
+### Pasos
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Dan178A/Tesis.git
+cd Tesis
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Iniciar en modo desarrollo
+npm run dev
+
+# 4. Abrir en el navegador
+# http://localhost:3000
+```
+
+---
+
+## 🔐 Rutas Disponibles
+
+| Ruta          | Descripción                          | Acceso      |
+|---------------|--------------------------------------|-------------|
+| `/`           | Página principal                     | Público     |
+| `/ejercicios` | Módulo de rutinas y ejercicios       | Público     |
+| `/login`      | Inicio de sesión                     | Público     |
+| `/perfil`     | Perfil del usuario autenticado       | Protegido   |
+| `/logout`     | Cerrar sesión                        | Protegido   |
+
+---
+
+## ☁️ Despliegue
+
+El proyecto está configurado para desplegarse automáticamente en **Vercel**. Cada push a la rama `master` activa un nuevo deploy.
+
+🔗 **URL de producción:** [https://bienestarpro.vercel.app](https://bienestarpro.vercel.app)
+
+---
+
+## 👨‍💻 Autor
+
+Desarrollado por **[Dan178A](https://github.com/Dan178A)** como proyecto de Tesis.
+
+---
+
+<div align="center">
+  Hecho con ❤️ para el bienestar de todos
+</div>
